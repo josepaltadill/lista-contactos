@@ -13,6 +13,7 @@ const ContactComponent = ({contact, connect, remove}) => {
             return (<i onClick={() => connect(contact)} className='bi-toggle-off task-action' style={{color: 'grey'}}></i>);
         }
     }
+    
     return (
         <tr className='fw-normal'>
             <th>

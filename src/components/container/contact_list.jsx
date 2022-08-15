@@ -11,7 +11,6 @@ const ContactList = () => {
     const [contacts, setContacts] = useState([contactDemo1, contactDemo2, contactDemo3]);
 
     function connectedContact(contact) {
-        console.log('Contacto conectado: ', contact);
         const index = contacts.indexOf(contact);
         const tempContacts = [...contacts];
         tempContacts[index].connected = !tempContacts[index].connected;
@@ -19,14 +18,12 @@ const ContactList = () => {
     }
 
     function addContact(contact) {
-        console.log('addContact', contact);
         const tempContacts = [...contacts];
         tempContacts.push(contact);
         setContacts(tempContacts);
     }
 
     function deleteContact(contact) {
-        console.log('deleteContact', contact);
         const index = contacts.indexOf(contact);
         const tempContacts = [...contacts];
         tempContacts.splice(index, 1);
