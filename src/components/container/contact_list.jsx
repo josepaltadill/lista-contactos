@@ -25,6 +25,14 @@ const ContactList = () => {
         setContacts(tempContacts);
     }
 
+    function deleteContact(contact) {
+        console.log('deleteContact', contact);
+        const index = contacts.indexOf(contact);
+        const tempContacts = [...contacts];
+        tempContacts.splice(index, 1);
+        setContacts(tempContacts);
+    }
+
     return (
         <div>
             <div className='col-12'>
@@ -40,7 +48,7 @@ const ContactList = () => {
                                 <tr>
                                     <th scope='col'>Name</th>
                                     <th scope='col'>Email</th>
-                                    <th scope='col'>Status</th>
+                                    <th scope='col'>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -50,6 +58,7 @@ const ContactList = () => {
                                             key={index}
                                             contact={contact}
                                             connect={connectedContact}
+                                            remove={deleteContact}
                                         >
                                         </ContactComponent>
                                     )
