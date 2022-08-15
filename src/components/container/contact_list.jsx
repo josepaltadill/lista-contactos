@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Contact } from '../../models/contact.class';
 import ContactComponent from '../../pure/contact';
 
 const ContactList = () => {
-    
+    const contactDemo1 = new Contact('Nom contacte 1', 'Email contacte 1', true);
+    const contactDemo2 = new Contact('Nom contacte 2', 'Email contacte 2', false);
+    const contactDemo3 = new Contact('Nom contacte 3', 'Email contacte 3', true);
+
+    const [contacts, setContacts] = useState([contactDemo1, contactDemo2, contactDemo3]);
+
     return (
         <div>
             <div className='col-12'>
@@ -22,7 +28,15 @@ const ContactList = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <ContactComponent></ContactComponent>
+                                {contacts.map((contact, index) => {
+                                    return (
+                                        <ContactComponent
+                                            key={index}
+                                            contact={contact}
+                                        >
+                                        </ContactComponent>
+                                    )
+                                })}
                             </tbody>
                         </table>
                     </div>
